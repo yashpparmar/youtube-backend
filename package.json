@@ -2,8 +2,10 @@
   "name": "youtube-backend",
   "version": "1.0.0",
   "description": "a backend like youtube ",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -11,5 +13,9 @@
     "backend"
   ],
   "author": "Yash Parmar",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3"
+  }
 }
