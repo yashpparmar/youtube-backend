@@ -26,7 +26,31 @@ const uploadOnCloudinary = async (localFilePath) => {
   }
 };
 
-export { uploadOnCloudinary };
+const destroyOnCloudinary = async (publicUrl) => {
+  // Configuration
+  cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
+
+  try {
+    if (!publicUrl.trim()) return null;
+    const public_id = publicUrl?.split("/").pop().split(".")[0];
+    // destroy the file on cloudinary
+    const response = await cloudinary.uploader.destroy(public_id, {
+      resource_type: "image",
+    });
+    // file has been destroyed successfully
+    console.log("file deleted on cloudinary", response?.result);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
+export { uploadOnCloudinary, destroyOnCloudinary };
 
 // (async function () {
 //   // Upload an image
