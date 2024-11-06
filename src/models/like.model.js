@@ -10,14 +10,14 @@ const likeSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Video",
     },
+    tweet: {
+      type: Schema.Types.ObjectId,
+      ref: "Tweet",
+    },
     likeBy: {
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
-    },
-    tweet: {
-      type: Schema.Types.ObjectId,
-      ref: "Tweet",
     },
   },
   { timestamps: true }

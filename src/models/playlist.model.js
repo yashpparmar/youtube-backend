@@ -5,14 +5,18 @@ const playlistSchema = new Schema(
     name: {
       type: String,
       default: "My Playlist",
+      required: true,
     },
     description: {
       type: String,
-    },
-    videos: {
-      type: [{ type: Schema.Types.ObjectId, ref: "Video" }],
       required: true,
     },
+    videos: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Video",
+      },
+    ],
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User",
