@@ -279,7 +279,7 @@ const deleteVideo = asyncHandler(async (req, res) => {
 
     return res
       .status(200)
-      .json(new ApiResponse(200, updatedVideo, "Video deleted successfully"));
+      .json(new ApiResponse(200, deletedVideo, "Video deleted successfully"));
   } catch (error) {
     throw new ApiError(
       500,
